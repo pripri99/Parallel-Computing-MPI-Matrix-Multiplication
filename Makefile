@@ -7,7 +7,7 @@ all:	hw4
 
 hw4:	$(OBJ)
 	@echo LINK $(OBJ) INTO $@
-	$(CC) $(OBJ) -o $@
+	$(CC)  $(OBJ) -o $@ -lm
 
 clean:
 	rm -f *.o *~ hw4
