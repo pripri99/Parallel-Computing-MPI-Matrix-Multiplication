@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /* Define the following macro if you want to use the recursive block
    decomposition scheme for matrix multiplications; otherwise, it's
@@ -169,8 +170,11 @@ int main (int argc, char * argv[])
   c = (datatype**)malloc(n*sizeof(datatype*));
   for(i=0; i<n; i++) c[i] = &sc[i*n];
 
+  clock_t begin = clock();
   /* do the multiplication */
   matmul(a, b, c, n);
+  clock_t end = clock();
+  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
   
   /* write matrix C */
   write_matrix(argv[3], sc, n, n);
@@ -180,7 +184,7 @@ int main (int argc, char * argv[])
     printf("\n");
   }
   */
-
+  printf("elapsed time: %f\n", time_spent);
   printf("matrix multiplication result stored in %s\n", argv[3]);
   return 0;
 }
