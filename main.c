@@ -70,7 +70,7 @@ int get_size(MPI_Datatype t) {
     else if (t == MPI_FLOAT) return sizeof(float);
     else if (t == MPI_INT) return sizeof(int);
     else {
-        printf("Error: Unrecognized argument to 'get_size'\n");
+        printf("Error: Unrecognized argument to  'get_size'\n");
         fflush(stdout);
         MPI_Abort(MPI_COMM_WORLD, -3);
     }
